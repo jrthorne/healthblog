@@ -14,9 +14,9 @@
         <P>Hello {{ user.get_full_name|default:user.username }}!</P>
         <p>Post a question or answer one</p>
         <UL>
-        <LI><a href="{% url 'questionAdd' %}" class="button">Ask a question</a></LI>
-        <LI><a href="{% url 'questionList' %}" class="button">Answer a question</a></LI>
-        <LI><a href="{% url 'auth:logout' %}?next={{ request.path }}" class="button">Logout</a></LI>
+        <LI><a href="{% url 'questionAdd' %}">Ask a question</a></LI>
+        <LI><a href="{% url 'questionList' %}">Answer a question</a></LI>
+        <LI><a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a></LI>
         </UL>
    {% else %}
         <UL>
