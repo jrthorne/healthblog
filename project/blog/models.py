@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Max
 from django.contrib.auth.models import User
 from django.http import Http404
 
@@ -18,7 +19,7 @@ class Question(models.Model):
     original_poster = models.ForeignKey(Poster, related_name='op')
 
     @property
-    def max_vote(self):
+    def vote_max(self):
         maxVote = self.answers.aggregate(Max('votes'))['votes__max']
         return maxVote
 

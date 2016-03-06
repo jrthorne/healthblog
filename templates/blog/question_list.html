@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load staticfiles %}
 
 {% block content %}
 
@@ -9,7 +8,9 @@
 
             {% for myQ in object_list %}
             <tr class={% cycle "odd" "even" as rowcolor %}> 
-                <td>{{ myQ.title }}</td><td>{{ myQ.max_vote }}</td><td>{{ myQ.num_ans }}</td>
+                <td><a href="{% url 'answerQuestion' myQ.id %}">{{ myQ.title }}</a></td>
+                <td>{{ myQ.vote_max }}</td>
+                <td>{{ myQ.num_ans }}</td>
             </tr>
             {% endfor %}
         </table>

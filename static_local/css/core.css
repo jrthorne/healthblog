@@ -1,0 +1,100 @@
+.table-curved {
+    border-collapse:separate;
+    border: 0;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+
+.table-curved tr:last-child th:last-child
+{ 
+    border-bottom-right-radius: 5px;   
+}
+
+.table-curved tr:last-child th:first-child
+{
+    border-bottom-left-radius: 5px;      
+}
+
+.table-curved th {
+    background-color:#467f45;
+    color:white;
+    padding: 4px 10px;
+}
+
+.table-curved td {
+    padding: 4px 10px;
+}
+
+.table-curved th:last-child {
+    border-top-right-radius: 5px;
+}
+
+.table-curved th:first-child {
+    border-top-left-radius: 5px;
+}
+
+.table-curved th.sorted {
+    background-color:#ddf5dd;
+}
+
+.table-curved a:link {
+    text-decoration: none;
+    line-height: 105%;
+}
+
+.table-curved a:hover {
+    background-color: #FFF04D;
+}
+
+
+tr.odd td {
+background-color: #DDDDFF; color: black;
+}
+tr.even td {
+background-color: #ddf5dd; color: black;
+}
+
+td.left { text-align:center; width:10%; }
+td.right { text-align:right; width:10%; }
+td.middle { text-align:left; width:70%; }
+
+td.jleft { text-align:center; width:8%; }
+td.jright { text-align:right; width:8%; }
+td.jmiddle { text-align:left; width:50%; }
+
+/* Form tables  */
+.table-form {
+    border-collapse:separate;
+    border: 0;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+.table-form th {
+    vertical-align: top;
+    background-color:#467f45;
+    color:white;
+    padding: 4px 10px;
+}
+
+.table-form td {
+    padding: 10px 10px;
+}
+
+.table-form tr:last-child th:first-child
+{ 
+    border-bottom-left-radius: 5px;   
+}
+
+.table-form tr:first-child th:first-child
+{
+    border-top-left-radius: 5px;      
+}
+
+/* JRT above table */
+
+/* JRT below input, text box etc */
+input, textarea {
+    border-radius: 5px;
+}

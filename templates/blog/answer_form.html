@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h2>{{ question.title }}</h2>
+<p>{{ question.description }}</p>
+			
+<h2>Your Answer</h2>
+{% if form.errors %}
+	<P style="color: red;">
+	Please correct the error{{ form.errors|pluralize }} below.
+	</p>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+
+{% endblock %}

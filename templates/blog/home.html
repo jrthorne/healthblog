@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if user and not user.is_anonymous %}
+ <div id="intro">
+ <H1>Welcome to my QA blog {{ user.first_name }}</H1>
+ {% else %}
+ <div>
+ <H1>Log in via one of the social methods below</H1>
+ {% endif %}
+
+
+   {% if user and not user.is_anonymous %}
+        <P>Hello {{ user.get_full_name|default:user.username }}!</P>
+        <p>Post a question or answer one</p>
+        <UL>
+        <LI><a href="{% url 'questionAdd' %}" class="button">Ask a question</a></LI>
+        <LI><a href="{% url 'questionList' %}" class="button">Answer a question</a></LI>
+        <LI><a href="{% url 'auth:logout' %}?next={{ request.path }}" class="button">Logout</a></LI>
+        </UL>
+   {% else %}
+        <UL>
+        <li><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="button">Fbook</a></li>
+        <li><a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="button">Google</a></li>
+        <li><a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}" class="button">Twitter</a></li>
+        </UL>
+   {% endif %}
+{% endblock %}
