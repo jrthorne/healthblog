@@ -3,10 +3,10 @@
 {% block content %}
 {% if user and not user.is_anonymous %}
  <div id="intro">
- <H1>Welcome to my QA blog {{ user.first_name }}</H1>
+ <H1><a href="#">Welcome to my QA blog {{ user.first_name }}</a></H1>
  {% else %}
  <div>
- <H1>Log in via one of the social methods below</H1>
+ <H1><a href="#">Log in via one of the social methods below</a></H1>
  {% endif %}
 
 

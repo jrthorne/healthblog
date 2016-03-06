@@ -4,13 +4,15 @@
         <title>Questions and Answers</title>
 
         <script src="{% static "js/jquery-1.8.2.min.js" %}"></script>
-        <noscript>
-            <link rel="stylesheet" href="{% static "css/core.css" %}" />
-        </noscript>
+            
+        <link rel="stylesheet" href="{% static "css/core.css" %}" />    
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
     </head>
     <body>
-        <div>
+        <div  class="page-header">
             <h1>Blog in Django 1.8 and Python 3</h1>
             {% if user and not user.is_anonymous %}
                 <h2>Hello {{ user.first_name }}</h2>

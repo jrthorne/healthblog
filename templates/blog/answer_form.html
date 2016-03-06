@@ -2,34 +2,43 @@
 
 
 {% block content %}
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="post">
+            <h1><a href="">{{ question.title }}</a></h1>
+            <div class="date">
+            <p>Asked by 
+            {{ question.original_poster.user.first_name }} 
+            {{ question.original_poster.user.last_name }} on 
+            {{ question.when_asked|date:"D jS M Y" }}
+            </p>
+            </div>
+            <p>{{ question.description|linebreaks }}</p>
+            </div>
 
-<h2>{{ question.title }}</h2>
-<p>Asked by 
-{{ question.original_poster.user.first_name }} 
-{{ question.original_poster.user.last_name }} on 
-{{ question.when_asked|date:"D jS M Y" }}
-</p>
-<p>{{ question.description }}</p>
+            <div class="post">
+            {% for ans in question.answers.all %}
+                <div class="date">
+                <P>Answered by {{ ans.author.user.first_name }} {{ ans.author.user.last_name }} on
+                {{ ans.when_answered|date:"D jS M Y" }} with votes = {{ ans.votes }}
+                </P>
+                </div>
+                <p>{{ ans.answer|linebreaks }}</p>
+            {% endfor %}
+            </div>
+            			
+            <h2>Post Your Own Answer</h2>
+            {% if form.errors %}
+            	<P style="color: red;">
+            	Please correct the error{{ form.errors|pluralize }} below.
+            	</p>
+            {% endif %}
 
-{% for ans in question.answers.all %}
-    <P>Answered by {{ ans.author.user.first_name }} {{ ans.author.user.last_name }} on
-    {{ ans.when_answered|date:"D jS M Y" }} with votes = {{ ans.votes }}
-    </P>
-    <p>{{ ans.answer }}</p>
-{% endfor %}
-
-			
-<h2>Post Your Own Answer</h2>
-{% if form.errors %}
-	<P style="color: red;">
-	Please correct the error{{ form.errors|pluralize }} below.
-	</p>
-{% endif %}
-
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Create" />
-</form>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" />
+            </form>
 
 {% endblock %}
