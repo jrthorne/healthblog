@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+        
+        <table class="core table-curved">
+            <tr><th>Title</th><th>Maximum Vote</th><th>Num Ans</th></tr>
+
+            {% for myQ in object_list %}
+            <tr class={% cycle "odd" "even" as rowcolor %}> 
+                <td>{{ myQ.title }}</td><td>{{ myQ.max_vote }}</td><td>{{ myQ.num_ans }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+{% endblock %}
