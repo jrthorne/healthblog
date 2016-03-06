@@ -60,9 +60,9 @@ AUTHENTICATION_BACKENDS = (
    'django.contrib.auth.backends.ModelBackend',
 )
 # where do we go to login?
-LOGIN_URL               = '/'
+LOGIN_URL               = '/blog/'
 # Where does social auth redirect us once logged in?
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/blog/'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -27,8 +27,11 @@ h1, h2, h3, h4 {
 .date {
     color: #828282;
 }
-.alignright{
+.alignright {
     text-align: right;
+}
+.floatcenter {
+    text-align: center;
 }
 .save {
     float: right;
@@ -160,4 +163,62 @@ td.jmiddle { text-align:center; }
 /* JRT below input, text box etc */
 input, textarea {
     border-radius: 5px;
+}
+.btn-lg {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 22.857142864000004px;
+  line-height: 2.2857142864rem;
+}
+.btn-facebook {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  background-color: #538ccd !important;
+  background-image: none !important;
+  border-left: none;
+  border-right: none;
+  border-top: 2px solid #6799d3 !important;
+  border-bottom: 2px solid #2a5a91 !important;
+}
+.btn-facebook:hover {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  background-color: #5f94d1 !important;
+  background-image: none !important;
+  border-left: none;
+  border-right: none;
+  border-top: 2px solid #72a1d7 !important;
+  border-bottom: 2px solid #2d619c !important;
+}
+.btn-facebook:focus,
+.btn-facebook:active {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  background-color: #3572b8 !important;
+  background-image: none !important;
+  border-left: none;
+  border-right: none;
+  border-top: 2px solid #387ac4 !important;
+  border-bottom: 2px solid #4381c9 !important;
 }
