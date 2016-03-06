@@ -35,9 +35,9 @@ class Question(models.Model):
 
     # If the compare user is not the owner, raise 404 or return not authorised message
     def authorized_owner_or_404(self, compareUser):
-        if compareUser != self.original_poster:
+        if compareUser != self.original_poster.user:
             raise Http404
-        return
+        return 
 
 
 class Answer(models.Model):

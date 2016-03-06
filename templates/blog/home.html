@@ -3,10 +3,10 @@
 {% block content %}
 {% if user and not user.is_anonymous %}
  <div id="intro">
- <H1><a href="#">Welcome to my QA blog {{ user.first_name }}</a></H1>
+ <H1>Welcome to my QA blog {{ user.first_name }}</H1>
  {% else %}
  <div>
- <H1><a href="#">Log in via one of the social methods below</a></H1>
+ <H1>Log in via one of the social methods below</H1>
  {% endif %}
 
 
@@ -22,7 +22,6 @@
         <UL>
         <li><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="button">Fbook</a></li>
         <li><a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="button">Google</a></li>
-        <li><a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}" class="button">Twitter</a></li>
         </UL>
    {% endif %}
 {% endblock %}

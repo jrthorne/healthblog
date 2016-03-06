@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, get_object_or_404, redirect
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.template import RequestContext
@@ -11,6 +11,22 @@ from django.utils.text import slugify
 from blog.models import Question, Answer
 
 # Create your views here.
+@login_required()
+def answerMinus(request, ansId):
+    myAns = get_object_or_404(Answer, pk=ansId)
+    myAns.votes -= 1
+    myAns.save()
+    redirectTo = reverse('answerQuestion', args=[myAns.question.pk])
+    return HttpResponseRedirect(redirectTo)
+
+@login_required()
+def answerPlus(request, ansId):
+    myAns = get_object_or_404(Answer, pk=ansId)
+    myAns.votes += 1
+    myAns.save()
+    redirectTo = reverse('answerQuestion', args=[myAns.question.pk])
+    return HttpResponseRedirect(redirectTo)
+
 ##################################################################
 class LoginRequiredMixin(object):
     @classmethod
@@ -53,7 +69,16 @@ class QuestionListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(QuestionListView, self).get_context_data(**kwargs)
-        # add extra context here
+        # need to sort by highest answer vote. This is slow, but okay for this case
+        questionList = []
+        for q in self.object_list.all():
+            qdict = model_to_dict(q)
+            qdict['vote_max'] = q.vote_max
+            qdict['num_ans'] = q.num_ans
+            questionList.append(qdict)
+        context['questionList'] = sorted(questionList, \
+            key=lambda t: t['vote_max'], reverse=True)
+
         return context
 
 
@@ -67,11 +92,13 @@ class QuestionAddView(LoginRequiredMixin, CreateView):
         return super(QuestionAddView, self).form_valid(form)
 
 
-class QuestionModView(LoginRequiredMixin, CreateView):
+class QuestionModView(LoginRequiredMixin, UpdateView):
     model = Question
+    fields = ['title', 'description'] 
+    success_url = reverse_lazy('questionList')
 
     def get_object(self, *args, **kwargs):
-        thisQuestion = super(QuestionMod, self).get_object(*args, **kwargs)
+        thisQuestion = super(QuestionModView, self).get_object(*args, **kwargs)
         thisQuestion.authorized_owner_or_404(self.request.user)
         return thisQuestion
 

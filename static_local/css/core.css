@@ -1,5 +1,6 @@
 body {
     padding-left: 15px;
+    padding-right: 15px;
 }
 
 .page-header {
@@ -26,7 +27,9 @@ h1, h2, h3, h4 {
 .date {
     color: #828282;
 }
-
+.alignright{
+    text-align: right;
+}
 .save {
     float: right;
 }
@@ -46,6 +49,13 @@ h1, h2, h3, h4 {
     margin-bottom: 70px;
 }
 
+.alignleft {
+    float: left;
+}
+.alignright {
+    float: right;
+}
+
 .post h1 a, .post h1 a:visited {
     color: #000000;
 }
@@ -55,6 +65,7 @@ h1, h2, h3, h4 {
     border: 0;
     border-radius: 5px;
     border-collapse: collapse;
+    width: 100%;
 }
 
 
@@ -69,7 +80,7 @@ h1, h2, h3, h4 {
 }
 
 .table-curved th {
-    background-color:#467f45;
+    background-color:#ff9400;
     color:white;
     padding: 4px 10px;
 }
@@ -101,19 +112,19 @@ h1, h2, h3, h4 {
 
 
 tr.odd td {
-background-color: #DDDDFF; color: black;
+background-color: #FFD04D; color: black;
 }
 tr.even td {
-background-color: #ddf5dd; color: black;
+background-color: #F0FF4D; color: black;
 }
 
-td.left { text-align:center; width:10%; }
-td.right { text-align:right; width:10%; }
-td.middle { text-align:left; width:70%; }
 
-td.jleft { text-align:center; width:8%; }
-td.jright { text-align:right; width:8%; }
-td.jmiddle { text-align:left; width:50%; }
+th.jleft { text-align:left; }
+th.jright { text-align:right; }
+th.jmiddle { text-align:center; }
+td.jleft { text-align:left; }
+td.jright { text-align:right; }
+td.jmiddle { text-align:center; }
 
 /* Form tables  */
 .table-form {

@@ -6,24 +6,37 @@
     <div class="row">
         <div class="col-md-8">
             <div class="post">
-            <h1><a href="">{{ question.title }}</a></h1>
-            <div class="date">
-            <p>Asked by 
-            {{ question.original_poster.user.first_name }} 
-            {{ question.original_poster.user.last_name }} on 
-            {{ question.when_asked|date:"D jS M Y" }}
-            </p>
-            </div>
-            <p>{{ question.description|linebreaks }}</p>
+                <div class="date">
+                <p>Asked by 
+                {{ question.original_poster.user.first_name }} 
+                {{ question.original_poster.user.last_name }} on 
+                {{ question.when_asked|date:"D jS M Y" }}
+                </p>
+                </div>
+
+                {% if request.user == question.original_poster.user %}&nbsp;<a class="btn btn-default" href="{% url 'questionMod' question.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>{% endif %}
+
+                <h1>{{ question.title }}</h1>
+                
+                <p>{{ question.description|linebreaks }}</p>
             </div>
 
             <div class="post">
             {% for ans in question.answers.all %}
                 <div class="date">
                 <P>Answered by {{ ans.author.user.first_name }} {{ ans.author.user.last_name }} on
-                {{ ans.when_answered|date:"D jS M Y" }} with votes = {{ ans.votes }}
+                {{ ans.when_answered|date:"D jS M Y" }}
                 </P>
                 </div>
+                <h2 class="alignright">
+                    <a href="{% url 'answerMinus' ans.id %}">
+                    <span class="glyphicon glyphicon-minus"></span>
+                    </a>
+                    {{ ans.votes }}
+                    <a href="{% url 'answerPlus' ans.id %}">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </h2>
                 <p>{{ ans.answer|linebreaks }}</p>
             {% endfor %}
             </div>
@@ -35,10 +48,10 @@
             	</p>
             {% endif %}
 
-            <form action="" method="post">
+            <form action="" method="post" class="post-form">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Submit" />
+                <button type="submit" class="save btn btn-default">Save</button>
             </form>
 
 {% endblock %}

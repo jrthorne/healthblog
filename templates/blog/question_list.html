@@ -4,13 +4,17 @@
 
         
         <table class="core table-curved">
-            <tr><th>Title</th><th>Maximum Vote</th><th>Num Ans</th></tr>
+            <tr>
+            <th>Title</th>
+            <th class="jmiddle">Maximum Vote</th>
+            <th class="jmiddle">Num Answers</th>
+            </tr>
 
-            {% for myQ in object_list %}
+            {% for myQ in questionList %}
             <tr class={% cycle "odd" "even" as rowcolor %}> 
                 <td><a href="{% url 'answerQuestion' myQ.id %}">{{ myQ.title }}</a></td>
-                <td>{{ myQ.vote_max }}</td>
-                <td>{{ myQ.num_ans }}</td>
+                <td class="jmiddle">{{ myQ.vote_max }}</td>
+                <td class="jmiddle">{{ myQ.num_ans }}</td>
             </tr>
             {% endfor %}
         </table>

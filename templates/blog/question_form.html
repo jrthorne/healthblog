@@ -2,7 +2,7 @@
 
 
 {% block content %}
-
+<h1>New Question</h1>
 			
 {% if form.errors %}
 	<P style="color: red;">
@@ -10,10 +10,10 @@
 	</p>
 {% endif %}
 
-<form action="" method="post">
+<form action="" method="post" class="post-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Create" />
+   <button type="submit" class="save btn btn-default">Save</button>
 </form>
 
 {% endblock %}

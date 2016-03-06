@@ -11,4 +11,6 @@ urlpatterns = patterns('blog.views',
     url(r'^questiondel/(?P<pk>\d+)/$', QuestionDelView.as_view(), name='questionDel'),
     url(r'^answerquestion/(?P<question_pk>\d+)/$', AnswerAddView.as_view(),\
     name='answerQuestion'),
+    url(r'^answerplus/(?P<ansId>\d+)/$', 'answerPlus', name='answerPlus'),
+    url(r'^answerminus/(?P<ansId>\d+)/$', 'answerMinus', name='answerMinus'),
 )

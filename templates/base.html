@@ -13,10 +13,13 @@
     </head>
     <body>
         <div  class="page-header">
-            <h1>Blog in Django 1.8 and Python 3</h1>
             {% if user and not user.is_anonymous %}
+                <a href="{% url 'questionAdd' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
                 <h1>Hello {{ user.first_name }}</h1>
+                <a href="{% url 'home' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
             {% endif %}
+            
+            <h1>Questions Blog in Django 1.8 and Python 3</h1>
         </div>
 
         {% block content %}
