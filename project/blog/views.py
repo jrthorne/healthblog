@@ -60,9 +60,11 @@ class QuestionListView(LoginRequiredMixin, ListView):
 class QuestionAddView(LoginRequiredMixin, CreateView):
     model = Question
     fields = ['title', 'description'] 
-    #fields = '__all__'
-
     success_url = reverse_lazy('questionList')
+
+    def form_valid(self, form):
+        form.instance.original_poster = self.request.user.poster
+        return super(QuestionAddView, self).form_valid(form)
 
 
 class QuestionModView(LoginRequiredMixin, CreateView):

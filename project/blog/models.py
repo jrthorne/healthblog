@@ -14,6 +14,7 @@ class Poster(models.Model):
 
 
 class Question(models.Model):
+    when_asked = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     description = models.TextField()
     original_poster = models.ForeignKey(Poster, related_name='op')
@@ -40,6 +41,7 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+    when_answered = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(Poster, related_name='author')
     question = models.ForeignKey(Question, related_name='answers')
     answer = models.TextField()
