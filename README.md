@@ -1,4 +1,20 @@
 # healthblog
+QUESTION:
+===========
+Create a web page with a form that allows a question to be created -- title and description are the only fields needed. 
+
+Once a question has been posted, it should gets its own page, where people can post answers. People can vote answers up & down. Questions should be ordered by these ratings. 
+
+You may use any python web framework & javascript library of your choice. Make sure the code you write doesn't just do what is needed immediately, but is code you'd be happy to maintain over time. 
+
+If any special instructions are needed to run the application, please include them in a README file. 
+
+Bonus: 
+
+* Allow people to edit questions once they've been posted.
+
+SOLUTION:
+=============
 This runs Python 3 and django 1.8
 To install, at the terminal
 > git clone https://github.com/jrthorne/healthblog.git <YOUR DIR>
@@ -19,7 +35,13 @@ http://djangowebsites.com.au/blog/facebook-django-integration/
 
 This is for registration of users. I could not use django-register, as (last time I cheked) this was not available for 
 python 3.
-Example local.py:
+
+TESTS:
+===========
+"./manage.py test blog" from healthblog root.
+
+EXAMPLE LOCAL.PY:
+====================
 import sys
 globals().update(vars(sys.modules['settings']))
 
