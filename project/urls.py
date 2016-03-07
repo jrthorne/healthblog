@@ -1,8 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
-
-
 urlpatterns = [
     # Examples:
     # url(r'^$', 'healthblog.views.home', name='home'),

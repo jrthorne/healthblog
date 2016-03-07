@@ -3,9 +3,10 @@ from django.db.models import Max
 from django.contrib.auth.models import User
 from django.http import Http404
 
+
 # Create your models here.
 class Poster(models.Model):
-    # one to one with django user. You can select any user to be a player 
+    # one to one with django user. You can select any user to be a player
     user = models.OneToOneField(User, related_name='poster')
 
     def __str__(self):
@@ -28,16 +29,17 @@ class Question(models.Model):
     def num_ans(self):
         numAns = self.answers.count()
         return numAns
-    
+
     # remember, don't use __unicode__ if using python 3
     def __str__(self):
         return self.title
 
-    # If the compare user is not the owner, raise 404 or return not authorised message
+    """ If the compare user is not the owner, raise 404 or return not
+    authorised message """
     def authorized_owner_or_404(self, compareUser):
         if compareUser != self.original_poster.user:
             raise Http404
-        return 
+        return
 
 
 class Answer(models.Model):
@@ -55,5 +57,3 @@ class Answer(models.Model):
         if compareUser != self.author:
             raise Http404
         return
-
-
