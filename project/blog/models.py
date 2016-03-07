@@ -21,7 +21,7 @@ class Question(models.Model):
 
     @property
     def vote_max(self):
-        maxVote = self.answers.aggregate(Max('votes'))['votes__max']
+        maxVote = self.answers.aggregate(Max('votes'))['votes__max'] or 0
         return maxVote
 
     @property
