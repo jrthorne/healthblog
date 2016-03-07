@@ -4,4 +4,6 @@
 **/__pycache__
 *.pyc
 project/settings/local.py
+db.sqlite3
+static_local/*
 static/*
