@@ -11,8 +11,11 @@ where "healthblog" is a good choice for MYPYTHONENVNAME. If you have workon setu
 Now you need to add a local.py file to /project/settings to contain your google and facebook secret keys, and the site ID
 if you are running this with DEBUG = False (NOTE: I may have this set to true in project/settings/__init__.py)
 
-Even without proper values for the secrets and keys, I beleive you can run this with manage.py runserver on port 8000, but
-you would have to create your own posters, and register the Poster model in admin.py
+Without proper values for the secrets and keys, you can't login/regiser when you run this 
+with manage.py runserver on port 8000, but the admin interface still works.
+
+To get the secret and key, check out my blog at
+http://djangowebsites.com.au/blog/facebook-django-integration/
 
 This is for registration of users. I could not use django-register, as (last time I cheked) this was not available for 
 python 3.
