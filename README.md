@@ -15,6 +15,8 @@ Bonus:
 
 SOLUTION:
 =============
+
+
 This runs Python 3 and django 1.8
 To install, at the terminal
 > git clone https://github.com/jrthorne/healthblog.git <YOUR DIR>
@@ -24,14 +26,14 @@ where "healthblog" is a good choice for MYPYTHONENVNAME. If you have workon setu
 > workon healthblog
 (healthblog) >
 
-Now you need to add a local.py file to /project/settings to contain your google and facebook secret keys, and the site ID
+My solution uses authentication and registration through Facebook or Google, and for this to work, you need secret/key pairs from a google/facebook developer account. These should be put in local.py, as they are not to be made publically available. To get the secret and key, check out my blog at
+http://djangowebsites.com.au/blog/facebook-django-integration/
+
+So you need to add a local.py file to /project/settings to contain your google and facebook secret keys, and the site ID
 if you are running this with DEBUG = False (NOTE: I may have this set to true in project/settings/__init__.py)
 
 Without proper values for the secrets and keys, you can't login/regiser when you run this 
 with manage.py runserver on port 8000, but the admin interface still works.
-
-To get the secret and key, check out my blog at
-http://djangowebsites.com.au/blog/facebook-django-integration/
 
 This is for registration of users. I could not use django-register, as (last time I cheked) this was not available for 
 python 3.
