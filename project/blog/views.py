@@ -14,7 +14,8 @@ from blog.models import Question, Answer
 
 # Create your views here.
 @login_required()
-def answerMinus(request, ansId):
+def answerVoteMinus(request, ansId):
+    # TODO: make an API called by the page with AJAX
     myAns = get_object_or_404(Answer, pk=ansId)
     myAns.votes -= 1
     myAns.save()
@@ -23,7 +24,8 @@ def answerMinus(request, ansId):
 
 
 @login_required()
-def answerPlus(request, ansId):
+def answerVotePlus(request, ansId):
+    # TODO: make an API called by the page with AJAX
     myAns = get_object_or_404(Answer, pk=ansId)
     myAns.votes += 1
     myAns.save()

@@ -29,11 +29,11 @@
                 </P>
                 </div>
                 <h2 class="alignright">
-                    <a href="{% url 'answerMinus' ans.id %}">
+                    <a href="{% url 'answerVoteMinus' ans.id %}">
                     <span class="glyphicon glyphicon-minus"></span>
                     </a>
                     {{ ans.votes }}
-                    <a href="{% url 'answerPlus' ans.id %}">
+                    <a href="{% url 'answerVotePlus' ans.id %}">
                     <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </h2>
