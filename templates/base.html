@@ -14,7 +14,7 @@
     <body>
         <div  class="page-header">
             {% if user and not user.is_anonymous %}
-                <a href="{% url 'questionAdd' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'question_add' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
                 <h1>Hello {{ user.first_name }}</h1>
                 <a href="{% url 'home' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>
             {% endif %}

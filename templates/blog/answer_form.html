@@ -14,7 +14,7 @@
                 </p>
                 </div>
 
-                {% if request.user == question.original_poster.user %}&nbsp;<a class="btn btn-default" href="{% url 'questionMod' question.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>{% endif %}
+                {% if request.user == question.original_poster.user %}&nbsp;<a class="btn btn-default" href="{% url 'question_mod' question.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>{% endif %}
 
                 <h1>{{ question.title }}</h1>
                 
@@ -29,11 +29,11 @@
                 </P>
                 </div>
                 <h2 class="alignright">
-                    <a href="{% url 'answerVoteMinus' ans.id %}">
+                    <a href="{% url 'answer_vote_minus' ans.id %}">
                     <span class="glyphicon glyphicon-minus"></span>
                     </a>
                     {{ ans.votes }}
-                    <a href="{% url 'answerVotePlus' ans.id %}">
+                    <a href="{% url 'answer_vote_plus' ans.id %}">
                     <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </h2>

@@ -12,28 +12,26 @@ from django.utils.text import slugify
 from blog.models import Question, Answer
 
 
-# Create your views here.
 @login_required()
-def answerVoteMinus(request, ansId):
+def answer_vote_minus(request, ansId):
     # TODO: make an API called by the page with AJAX
     myAns = get_object_or_404(Answer, pk=ansId)
     myAns.votes -= 1
     myAns.save()
-    redirectTo = reverse('answerQuestion', args=[myAns.question.pk])
+    redirectTo = reverse('answer_question', args=[myAns.question.pk])
     return HttpResponseRedirect(redirectTo)
 
 
 @login_required()
-def answerVotePlus(request, ansId):
+def answer_vote_plus(request, ansId):
     # TODO: make an API called by the page with AJAX
     myAns = get_object_or_404(Answer, pk=ansId)
     myAns.votes += 1
     myAns.save()
-    redirectTo = reverse('answerQuestion', args=[myAns.question.pk])
+    redirectTo = reverse('answer_question', args=[myAns.question.pk])
     return HttpResponseRedirect(redirectTo)
 
 
-##################################################################
 class LoginRequiredMixin(object):
     @classmethod
     def as_view(cls, **initkwargs):
@@ -49,11 +47,10 @@ class LoginRequiredMixin(object):
         return context
 
 
-##################################################################
 class AnswerAddView(LoginRequiredMixin, CreateView):
     model = Answer
     fields = ['answer']
-    success_url = reverse_lazy('questionList')
+    success_url = reverse_lazy('question_list')
 
     def get_context_data(self, **kwargs):
         context = super(AnswerAddView, self).get_context_data(**kwargs)
@@ -68,7 +65,6 @@ class AnswerAddView(LoginRequiredMixin, CreateView):
         return super(AnswerAddView, self).form_valid(form)
 
 
-##################################################################
 class QuestionListView(LoginRequiredMixin, ListView):
     model = Question
     # Note that I use the default for template_name
@@ -77,13 +73,13 @@ class QuestionListView(LoginRequiredMixin, ListView):
         context = super(QuestionListView, self).get_context_data(**kwargs)
         """need to sort by highest answer vote. This is slow, but okay
         for this case"""
-        questionList = []
+        question_list = []
         for q in self.object_list.all():
             qdict = model_to_dict(q)
             qdict['vote_max'] = q.vote_max
             qdict['num_ans'] = q.num_ans
-            questionList.append(qdict)
-        context['questionList'] = sorted(questionList,
+            question_list.append(qdict)
+        context['question_list'] = sorted(question_list,
                                          key=lambda t: t['vote_max'],
                                          reverse=True)
 
@@ -93,7 +89,7 @@ class QuestionListView(LoginRequiredMixin, ListView):
 class QuestionAddView(LoginRequiredMixin, CreateView):
     model = Question
     fields = ['title', 'description']
-    success_url = reverse_lazy('questionList')
+    success_url = reverse_lazy('question_list')
 
     def form_valid(self, form):
         form.instance.original_poster = self.request.user.poster
@@ -103,7 +99,7 @@ class QuestionAddView(LoginRequiredMixin, CreateView):
 class QuestionModView(LoginRequiredMixin, UpdateView):
     model = Question
     fields = ['title', 'description']
-    success_url = reverse_lazy('questionList')
+    success_url = reverse_lazy('question_list')
 
     def get_object(self, *args, **kwargs):
         thisQuestion = super(QuestionModView, self).get_object(*args, **kwargs)
@@ -113,10 +109,9 @@ class QuestionModView(LoginRequiredMixin, UpdateView):
 
 class QuestionDelView(LoginRequiredMixin, DeleteView):
     model = Question
-    success_url = reverse_lazy('questionList')
+    success_url = reverse_lazy('question_list')
 
 
-##################################################################
 @ensure_csrf_cookie
 def home(request):
     context = RequestContext(request,

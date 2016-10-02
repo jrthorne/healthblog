@@ -1,4 +1,4 @@
-from  settomgs.base import *
+from  settings.base import *
 
 try:
     from settings.local import *

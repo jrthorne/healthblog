@@ -8,11 +8,11 @@ from blog.models import Poster
 def create_poster(backend, details, response, user=None, *args, **kwargs):
     if user and user.pk:
         try:
-            oldPoster = user.poster
+            old_poster = user.poster
         except Poster.DoesNotExist:
             # User exists, poster does not. Create poster
-            newPoster = Poster(user=user)
-            newPoster.save()
+            new_poster = Poster(user=user)
+            new_poster.save()
         # end try
         
         return {

@@ -14,15 +14,15 @@ class AuthorizationTests(TestCase):
         # In the interests of brevity, just testing redirect to login if not logged in
         pass
 
-    def testNoAccessWithoutLogin(self):
+    def test_no_access_without_login(self):
         """
         Tests that redirected to the home/login page if you are not logged in
         """
-        response = self.client.get(reverse('questionList'), follow=True)
-        expected_url = reverse('home') + "?next=" + reverse('questionList')
+        response = self.client.get(reverse('question_list'), follow=True)
+        expected_url = reverse('home') + "?next=" + reverse('question_list')
         self.assertRedirects(response, expected_url, status_code=302, 
             target_status_code=200)
-        expected_url = reverse('home') + "?next=" + reverse('questionAdd')
-        response = self.client.get(reverse('questionAdd'), follow=True)
+        expected_url = reverse('home') + "?next=" + reverse('question_add')
+        response = self.client.get(reverse('question_add'), follow=True)
         self.assertRedirects(response, expected_url, status_code=302, 
             target_status_code=200)

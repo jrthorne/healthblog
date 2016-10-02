@@ -27,8 +27,8 @@ class Question(models.Model):
 
     @property
     def num_ans(self):
-        numAns = self.answers.count()
-        return numAns
+        num_ans = self.answers.count()
+        return num_ans
 
     # remember, don't use __unicode__ if using python 3
     def __str__(self):
@@ -36,8 +36,8 @@ class Question(models.Model):
 
     """ If the compare user is not the owner, raise 404 or return not
     authorised message """
-    def authorized_owner_or_404(self, compareUser):
-        if compareUser != self.original_poster.user:
+    def authorized_owner_or_404(self, compare_user):
+        if compare_user != self.original_poster.user:
             raise Http404
         return
 
@@ -53,7 +53,7 @@ class Answer(models.Model):
     def __str__(self):
         return self.answer[:80]
 
-    def authorized_owner_or_404(self, compareUser):
-        if compareUser != self.author:
+    def authorized_owner_or_404(self, compare_user):
+        if compare_user != self.author:
             raise Http404
         return

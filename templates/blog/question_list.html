@@ -12,7 +12,7 @@
 
             {% for myQ in questionList %}
             <tr class={% cycle "odd" "even" as rowcolor %}> 
-                <td><a href="{% url 'answerQuestion' myQ.id %}">{{ myQ.title }}</a></td>
+                <td><a href="{% url 'answer_question' myQ.id %}">{{ myQ.title }}</a></td>
                 <td class="jmiddle">{{ myQ.vote_max }}</td>
                 <td class="jmiddle">{{ myQ.num_ans }}</td>
             </tr>
