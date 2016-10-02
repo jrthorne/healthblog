@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
-from blog.models import Question
-from blog.views import QuestionListView, QuestionAddView, QuestionModView, \
+from .models import Question
+from .views import QuestionListView, QuestionAddView, QuestionModView, \
 QuestionDelView, AnswerAddView
 
-urlpatterns = patterns('blog.views', 
+urlpatterns = patterns('apps.blog.views', 
     url(r'^$', 'home', name='home'),   
     url(r'^questionlist/$', QuestionListView.as_view(), name='question_list'),
     url(r'^questionadd/$', QuestionAddView.as_view(), name='question_add'),

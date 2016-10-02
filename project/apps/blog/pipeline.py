@@ -2,7 +2,7 @@ from django.contrib import auth
 from social.apps.django_app.default.models import UserSocialAuth
 from social.exceptions import AuthAlreadyAssociated
 from django.contrib.auth.models import User
-from blog.models import Poster
+from apps.blog.models import Poster
 
 # Any social auth cretaed user should be a poster
 def create_poster(backend, details, response, user=None, *args, **kwargs):

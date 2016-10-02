@@ -1,16 +1,15 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.core.urlresolvers import reverse_lazy, reverse
-from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.views.decorators.csrf import ensure_csrf_cookie
-from django.template import RequestContext
-from django.views.generic.list import ListView
-from django.views.generic.edit import FormView, CreateView, UpdateView, \
-                                    DeleteView
 from django.forms.models import model_to_dict
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.template import RequestContext
 from django.utils.text import slugify
-from blog.models import Question, Answer
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.generic.list import ListView
+from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 
+from .models import Question, Answer
 
 @login_required()
 def answer_vote_minus(request, ansId):

@@ -14,9 +14,9 @@
    {% if user and not user.is_anonymous %}
         <P>Hello {{ user.get_full_name|default:user.username }}!</P>
         <p>Post a question or answer one</p>
-        <P><a href="{% url 'questionAdd' %}" class="btn btn-lg btn-facebook">
+        <P><a href="{% url 'question_add' %}" class="btn btn-lg btn-facebook">
         Ask a question</a></P>
-        <P><a href="{% url 'questionList' %}" class="btn btn-lg btn-facebook">
+        <P><a href="{% url 'question_list' %}" class="btn btn-lg btn-facebook">
         Answer a question</a></P>
         <P><a href="{% url 'auth:logout' %}?next={{ request.path }}" 
         class="btn btn-lg btn-facebook">Logout</a></P>
