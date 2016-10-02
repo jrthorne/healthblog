@@ -51,7 +51,7 @@ globals().update(vars(sys.modules['settings']))
 SITE_ID = 1
 
 DEBUG=True
-# don't send emails from development machine
+# Sirect emails to console on development machine
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SOCIAL_AUTH_FACEBOOK_KEY = 'YOURS'
