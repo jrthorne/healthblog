@@ -36,31 +36,30 @@ python 3.
 
 # TESTS:
 "./manage.py test blog" from healthblog root.
-
 # DEVELOPMENT SETTINGS LOCAL.PY:
->import sys
->globals().update(vars(sys.modules['settings']))
->
-># to install a local only application
->#INSTALLED_APPS += ('another_app',)
->
->SITE_ID = 1
->
->DEBUG=True
-># Direct emails to console on development machine
->EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
->
->SOCIAL_AUTH_FACEBOOK_KEY = 'YOURS'
->SOCIAL_AUTH_FACEBOOK_SECRET = 'YOURS'
->
->SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
->SOCIAL_AUTH_FACEBOOK_SCOPE = [
->    'email',
->]
->
->EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
->
-># google
->SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "YOURS.apps.googleusercontent.com"
->SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "YOURS"
+import sys
+globals().update(vars(sys.modules['settings']))
+
+# to install a local only application
+#INSTALLED_APPS += ('another_app',)
+
+SITE_ID = 1
+
+DEBUG=True
+# Direct emails to console on development machine
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SOCIAL_AUTH_FACEBOOK_KEY = 'YOURS'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'YOURS'
+
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
+SOCIAL_AUTH_FACEBOOK_SCOPE = [
+    'email',
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "YOURS.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "YOURS"
 
