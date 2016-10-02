@@ -134,3 +134,15 @@ STATICFILES_DIRS = (
 STATIC_URL = '/static/'
 
 SHELL_PLUS = "ipython"
+
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
+SOCIAL_AUTH_FACEBOOK_SCOPE = [
+    'email',
+]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "your google key"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "your google secret"
+
+# Magiclamp
+SOCIAL_AUTH_FACEBOOK_KEY = 'your facebook key'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'your facebook secret'

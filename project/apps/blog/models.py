@@ -10,8 +10,14 @@ class Poster(models.Model):
     user = models.OneToOneField(User, related_name='poster')
 
     def __str__(self):
-        return str(self.id) + ': ' + self.user.first_name + ': ' + \
-            self.user.social_auth.all()[0].provider
+        try:
+            first_name = self.user.first_name
+            provider = self.user.social_auth.first().provider
+        except User.DoesNotExist:
+            first_name = "Does Not Exist"
+            provider = "Does Not Exist"
+        
+        return '%d: %s: %s' % (self.id, first_name, provider)
 
 
 class Question(models.Model):

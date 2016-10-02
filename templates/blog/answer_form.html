@@ -23,12 +23,10 @@
 
             <div class="post">
             {% for ans in question.answers.all %}
-                <div class="date">
-                <P>Answered by {{ ans.author.user.first_name }} {{ ans.author.user.last_name }} on
-                {{ ans.when_answered|date:"D jS M Y" }}
-                </P>
-                </div>
-                <h2 class="alignright">
+                
+                <div id="answer">
+                <p>{{ ans.answer|linebreaks }}</p>
+                <p>
                     <a href="{% url 'answer_vote_minus' ans.id %}">
                     <span class="glyphicon glyphicon-minus"></span>
                     </a>
@@ -36,8 +34,13 @@
                     <a href="{% url 'answer_vote_plus' ans.id %}">
                     <span class="glyphicon glyphicon-plus"></span>
                     </a>
-                </h2>
-                <p>{{ ans.answer|linebreaks }}</p>
+                </p>
+                </div>
+                <div class="date">
+                <P>Answered by {{ ans.author.user.first_name }} {{ ans.author.user.last_name }} on
+                {{ ans.when_answered|date:"D jS M Y" }}
+                </P>
+                </div>
             {% endfor %}
             </div>
             			
