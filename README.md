@@ -17,7 +17,7 @@ SOLUTION:
 =============
 
 
-This runs Python 3 and django 1.8
+This runs Python 3 and django 1.9
 To install, at the terminal
 > git clone https://github.com/jrthorne/healthblog.git <YOUR DIR>
 Create a virtual environment with
