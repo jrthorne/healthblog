@@ -3,7 +3,6 @@ Run "./manage.py test blog" from healthblog root.
 """
 from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
-from .models import *
 import datetime # need to make timezone aware
 import urllib.parse
 
