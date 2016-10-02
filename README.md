@@ -1,4 +1,4 @@
-# healthblog
+# Simple Blog
 Create a web page with a form that allows a question to be created -- title and description are the only fields needed. 
 
 Once a question has been posted, it should gets its own page, where people can post answers. People can vote answers up & down. Questions should be ordered by these ratings. 
