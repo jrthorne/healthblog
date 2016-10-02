@@ -1,4 +1,5 @@
-# Simple Blog
+Simple Blog
+=============
 Create a web page with a form that allows a question to be created -- title and description are the only fields needed. 
 
 Once a question has been posted, it should gets its own page, where people can post answers. People can vote answers up & down. Questions should be ordered by these ratings. 
@@ -11,10 +12,7 @@ Bonus:
 
 * Allow people to edit questions once they've been posted.
 
-SOLUTION:
-=============
-
-
+# SOLUTION:
 This runs Python 3 and django 1.9
 To install, at the terminal
 > git clone https://github.com/jrthorne/healthblog.git <YOUR DIR>
@@ -36,12 +34,10 @@ with manage.py runserver on port 8000, but the admin interface still works.
 This is for registration of users. I could not use django-register, as (last time I cheked) this was not available for 
 python 3.
 
-TESTS:
-===========
+# TESTS:
 "./manage.py test blog" from healthblog root.
 
-EXAMPLE LOCAL.PY:
-====================
+# DEVELOPMENT SETTINGS LOCAL.PY:
 import sys
 globals().update(vars(sys.modules['settings']))
 
@@ -51,7 +47,7 @@ globals().update(vars(sys.modules['settings']))
 SITE_ID = 1
 
 DEBUG=True
-# Sirect emails to console on development machine
+# Direct emails to console on development machine
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SOCIAL_AUTH_FACEBOOK_KEY = 'YOURS'
