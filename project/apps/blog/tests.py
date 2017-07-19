@@ -6,8 +6,6 @@ from django.core.urlresolvers import reverse
 import datetime # need to make timezone aware
 import urllib.parse
 
-import breakme
-
 class AuthorizationTests(TestCase):
 
     def setUp(self):
