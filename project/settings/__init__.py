@@ -3,4 +3,4 @@ from  settings.base import *
 try:
     from settings.local import *
 except ImportError:
-    pass
+    print('Could not import local.py settings')
