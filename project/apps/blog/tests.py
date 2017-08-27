@@ -9,8 +9,10 @@ import urllib.parse
 class AuthorizationTests(TestCase):
 
     def setUp(self):
-        # To fully test, create poster accounts here, and check that they can do things
-        # In the interests of brevity, just testing redirect to login if not logged in
+        """
+        To fully test, create poster accounts here, and check that they can do things
+        In the interests of brevity, just testing redirect to login if not logged in
+        """
         pass
 
     def test_no_access_without_login(self):

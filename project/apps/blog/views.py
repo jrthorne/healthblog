@@ -13,7 +13,9 @@ from .models import Question, Answer
 
 @login_required()
 def answer_vote_minus(request, ansId):
-    # TODO: make an API called by the page with AJAX
+    """
+    TODO: make an API called by the page with AJAX
+    """
     myAns = get_object_or_404(Answer, pk=ansId)
     myAns.votes -= 1
     myAns.save()
@@ -23,7 +25,9 @@ def answer_vote_minus(request, ansId):
 
 @login_required()
 def answer_vote_plus(request, ansId):
-    # TODO: make an API called by the page with AJAX
+    """
+    TODO: make an API called by the page with AJAX
+    """
     myAns = get_object_or_404(Answer, pk=ansId)
     myAns.votes += 1
     myAns.save()

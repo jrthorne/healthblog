@@ -4,8 +4,11 @@ from social.exceptions import AuthAlreadyAssociated
 from django.contrib.auth.models import User
 from apps.blog.models import Poster
 
-# Any social auth cretaed user should be a poster
+
 def create_poster(backend, details, response, user=None, *args, **kwargs):
+    """
+    Any social auth cretaed user should be a poster
+    """
     if user and user.pk:
         try:
             old_poster = user.poster
@@ -13,7 +16,6 @@ def create_poster(backend, details, response, user=None, *args, **kwargs):
             # User exists, poster does not. Create poster
             new_poster = Poster(user=user)
             new_poster.save()
-        # end try
         
         return {
             'user': user,
@@ -25,5 +27,3 @@ def create_poster(backend, details, response, user=None, *args, **kwargs):
             'user': user,
             'is_new': False,
         }
-    # endif
-# end create_poster
